@@ -5,12 +5,7 @@ A browser-based interactive 3D Saturn demo with real-time hand tracking via webc
 ## Screenshots
 
 <p align="center">
-  <img src="screenshots/saturn-screenshot-1.png" width="48%" />
-  <img src="screenshots/saturn-screenshot-2.png" width="48%" />
-</p>
-<p align="center">
-  <img src="screenshots/saturn-screenshot-3.png" width="48%" />
-  <img src="screenshots/saturn-screenshot-4.png" width="48%" />
+  <img src="screenshots/saturn-screenshot-1.png" width="80%" />
 </p>
 
 ## Features

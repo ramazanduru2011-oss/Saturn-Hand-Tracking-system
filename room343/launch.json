@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "saturn",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-p", "3333", "C:\\Users\\DURU\\Desktop\\saturn-demo"],
+      "port": 3333
+    }
+  ]
+}
