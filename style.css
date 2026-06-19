@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+/* Three.js appends its own <canvas> — keep it as the base layer */
+canvas {
+  display: block;
+}
+
+/* Webcam facecam — small preview pinned to bottom-right */
+#webcam {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 220px;
+  height: 165px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1.5px solid rgba(0, 180, 255, 0.45);
+  box-shadow: 0 0 18px rgba(0, 160, 255, 0.35), 0 4px 20px rgba(0,0,0,0.6);
+  transform: scaleX(-1); /* mirror so it feels natural */
+  z-index: 15;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+#webcam.ready {
+  opacity: 1;
+}
+
+/* Landmark overlay — full-screen, on top of Saturn, non-interactive */
+#hand-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* clicks pass through to Three.js */
+  z-index: 10;
+}
+
+/* Camera permission / loading status badge */
+#hand-status {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+  background: rgba(0, 0, 0, 0.45);
+  padding: 5px 14px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+#hand-status.hidden {
+  opacity: 0;
+}

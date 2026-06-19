@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saturn</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!--
+    MediaPipe Hands — loaded as classic scripts (not ES modules).
+    Must come before hands.js so the global `Hands` constructor is available.
+    camera_utils gives us CameraUtils.Camera which handles the getUserMedia loop.
+    drawing_utils gives us drawConnectors / drawLandmarks helpers.
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!--
+    Hidden <video> element.
+    MediaPipe's CameraUtils feeds webcam frames into this.
+    It stays invisible — we only use it as a source for the detector.
+  -->
+  <video id="webcam" playsinline></video>
+
+  <!--
+    Overlay <canvas> — sits on top of the Three.js canvas.
+    hands.js draws skeleton landmarks here every frame.
+    Pointer-events are disabled so mouse/touch still reach Three.js.
+  -->
+  <canvas id="hand-canvas"></canvas>
+
+  <!-- Saturn 3D scene (Three.js writes its own canvas into <body>) -->
+  <script type="module" src="main.js"></script>
+
+  <!-- Hand tracking — plain script so it can use the MediaPipe globals above -->
+  <script src="hands.js"></script>
+</body>
+</html>
