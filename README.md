@@ -2,6 +2,17 @@
 
 A browser-based interactive 3D Saturn demo with real-time hand tracking via webcam.
 
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/saturn-screenshot-1.png" width="48%" />
+  <img src="screenshots/saturn-screenshot-2.png" width="48%" />
+</p>
+<p align="center">
+  <img src="screenshots/saturn-screenshot-3.png" width="48%" />
+  <img src="screenshots/saturn-screenshot-4.png" width="48%" />
+</p>
+
 ## Features
 
 - **3D Particle Saturn** — planet and ring system built from 68,000+ particles using Three.js custom shaders

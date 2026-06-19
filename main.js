@@ -4,7 +4,7 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.m
 
 const scene    = new THREE.Scene();
 const camera   = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
 
 renderer.setPixelRatio(devicePixelRatio);
 renderer.setSize(innerWidth, innerHeight);
@@ -725,3 +725,17 @@ function animate() {
 }
 
 animate();
+
+// Press S to save a screenshot
+let _shotIndex = 1;
+addEventListener('keydown', e => {
+  if (e.key !== 's' && e.key !== 'S') return;
+  renderer.render(scene, camera); // ensure fresh frame
+  renderer.domElement.toBlob(blob => {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `saturn-screenshot-${_shotIndex++}.png`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }, 'image/png');
+});
